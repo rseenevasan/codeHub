@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Rama\\POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC.csproj": {}
+  },
+  "projects": {
+    "C:\\Rama\\POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Rama\\POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC.csproj",
+        "projectName": "Time.Functions.Sas.POC",
+        "projectPath": "C:\\Rama\\POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC.csproj",
+        "packagesPath": "C:\\Users\\ram060419\\.nuget\\packages\\",
+        "outputPath": "C:\\Rama\\POC\\Time.Functions.Sas.POC\\Time.Functions.Sas.POC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ram060419\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://packages.paycor.com/nuget/NugetV2": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NET.Sdk.Functions": {
+              "target": "Package",
+              "version": "[1.0.29, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.8, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
