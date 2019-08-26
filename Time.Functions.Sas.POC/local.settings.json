@@ -1,0 +1,27 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "APIM_BaseURL": "https://api-quarterly.paycor.com/",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=performtimequarterly;AccountKey=Uw478s8hoop7g71wRHGo68EKMgVALGT7xGfkio+CpmaiQ8m1WgMxy5/xa+YgFqSMeP/Al2ViMrbBlfEQlCNuZQ==;EndpointSuffix=core.windows.net",
+    "DecryptionKey": "#isn`Tthi$thEk3yfor0urdEcrYpt!On",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "HCM_BaseURL": "https://localhost/",
+    "HoursToexpire": "0.10",
+    "Microsoft.ServiceBus.ConnectionString": "Endpoint=sb://performquarterly.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=r+UUGzpeDntku1WUQ32+PkbW8Ga1rrcfcwnnRfaN1rw=",
+    "NewRelicAccountId": "818335",
+    "NewRelicEnvironment": "Monthly",
+    "NewRelicProjectName": "TimeFunctions",
+    "PunchQueueName": "punchqueue",
+    "secureURL": "http://localhost",
+    "SecurityServiceBaseUrl": "http://localhost/accounts/api/v2/authtoken",
+    "StackifyApiKey": "9La6Bb9Yb9Rb6Nn8Fc9Tc4Wu3Hu9Sd8Hy7Ai3We",
+    "StackifyEnvironmentName": "Monthly",
+    "StackifyProjectName": "TimeFunctions",
+    "Time.Functions.PunchKey": "6f01bb7d-afce-e611-bd9f-005056abeccd",
+    "TimeApiBaseURL": "http://localhost/",
+    "TimeFunctionsAPIMKey": "326f9cffdb4a493d8220a86f3eeb9197",
+    "TimeFunctions-OAuth-ClientSecret": "pnUl33VH40Khqef6Y/YQEg",
+    "Time-RedisCache-ConnectionString": "127.0.0.1:6379,abortConnect=false",
+    "Time-Storage-ConnectionString": "DefaultEndpointsProtocol=https;AccountName=performtimequarterly;AccountKey=Uw478s8hoop7g71wRHGo68EKMgVALGT7xGfkio+CpmaiQ8m1WgMxy5/xa+YgFqSMeP/Al2ViMrbBlfEQlCNuZQ==;EndpointSuffix=core.windows.net"
+  }
+}
