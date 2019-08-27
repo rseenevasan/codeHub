@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -13,13 +13,12 @@ namespace Time.Functions.Sas.POC
         private static string storageConnectionString = Environment.GetEnvironmentVariable(Constants.StorageConnectionStringVariable, EnvironmentVariableTarget.Process);
         private static string hoursToexpire = Environment.GetEnvironmentVariable(Constants.HoursToexpire, EnvironmentVariableTarget.Process);
 
-        public static async Task<List<SasDto>> GetBlobUrisByContainer(CloudBlobContainer blobContainer, string clientId, long employeeUid, ILogger logger)
+        public static async Task<List<string>> GetBlobUrisByContainer(CloudBlobContainer blobContainer, string clientId, long employeeUid, ILogger logger)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
             var backupBlobClient = storageAccount.CreateCloudBlobClient();
-          
             BlobContinuationToken blobContinuationToken = null;
-            List<SasDto> employeeUriList = new List<SasDto>();
+            List<string> employeeUriList = new List<string>();
             do
             {
                 var results = await blobContainer.ListBlobsSegmentedAsync(null, blobContinuationToken);
@@ -28,8 +27,10 @@ namespace Time.Functions.Sas.POC
                 {
                     if (item.Uri.ToString().Contains(employeeUid.ToString()))
                     {
-                        var sasDto = SAStokenGenerator.GetToken(storageConnectionString, item.Container.Name,Convert.ToDouble(hoursToexpire));
-                        employeeUriList.Add(sasDto);
+                       
+                        var blobName = item.Uri.ToString().Split('/');
+                        var uri = SAStokenGenerator.GetToken(storageConnectionString, item.Container.Name, blobName[blobName.Length - 1],  Convert.ToDouble(hoursToexpire));
+                        employeeUriList.Add(uri.ToString());
                     }
                 }
             } while (blobContinuationToken != null);
