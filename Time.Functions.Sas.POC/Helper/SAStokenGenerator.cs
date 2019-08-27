@@ -1,15 +1,14 @@
-﻿using Microsoft.WindowsAzure.Storage;
+
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Time.Functions.Sas.POC
 {
     public static class SAStokenGenerator
     {
-
-        public static SasDto GetToken(string storageConnectionString,string containerName,double hoursToexpire)
+        public static Uri GetToken(string storageConnectionString,string containerName,string blobName,double hoursToexpire)
         {
             //Parse the connection string and return a reference to the storage account.
             CloudStorageAccount storageAccount =
@@ -30,14 +29,19 @@ namespace Time.Functions.Sas.POC
                 new SharedAccessBlobPolicy
                 {
                     SharedAccessExpiryTime = sharedAccessExpiryTime,
-                    Permissions = SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Write
+                    Permissions = SharedAccessBlobPermissions.Read
                 };
 
             //Generate the shared access signature on the container, setting the constraints directly on the signature.
             string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);
-           
-            //Return the URI string for the container, including the SAS token.    
-            return new SasDto { Uri = container.Uri.ToString(), Token = sasContainerToken, ExpireDate = sharedAccessExpiryTime.ToString() };
-        }
+            UriBuilder fullUri = new UriBuilder()
+            {
+                Scheme = "https",
+                Host = string.Format("{0}.blob.core.windows.net", storageAccount.Credentials.AccountName),
+                Path = string.Format("{0}/{1}", containerName, blobName),
+                Query = sasContainerToken
+            };
+            return fullUri.Uri;
+         }
     }
 }
